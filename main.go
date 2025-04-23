@@ -19,6 +19,7 @@ func main() {
 			commands.Feed,
 			commands.Sync,
 			commands.Exit,
+			commands.Push,
 		},
 	}
 

@@ -37,7 +37,11 @@ func StartSync(baseDir string) error {
 	}
 
 	feedPath := filepath.Join(baseDir, FeedDir)
-	_ = storage.EnsureDir(feedPath)
+
+	if err := storage.EnsureDir(feedPath); err != nil {
+		return fmt.Errorf("failed to create feed dir: %w", err)
+	}	
+	
 	fmt.Println("[+] Sync started. Listening for posts... (press Ctrl+C to stop)")
 
 	for {
